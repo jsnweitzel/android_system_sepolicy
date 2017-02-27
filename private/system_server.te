@@ -708,3 +708,5 @@ neverallow system_server system_server_tmpfs:file execute;
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
 neverallow system_server dexoptanalyzer_exec:file no_x_file_perms;
+
+allow system_server theme_data_file:dir search;
