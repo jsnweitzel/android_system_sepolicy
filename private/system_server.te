@@ -427,6 +427,9 @@ get_prop(system_server, boottime_prop)
 # Read device's serial number from system properties
 get_prop(system_server, serialno_prop)
 
+# theme property
+get_prop(system_server, theme_prop)
+
 # Read/write the property which keeps track of whether this is the first start of system_server
 set_prop(system_server, firstboot_prop)
 
@@ -599,6 +602,9 @@ allow system_server adbd:unix_stream_socket { getattr getopt ioctl read write sh
 # Allow invoking tools like "timeout"
 allow system_server toolbox_exec:file rx_file_perms;
 
+# Allow `search` in theme_data_file directory
+allow system_server theme_data_file:dir search;
+
 # Postinstall
 #
 # For OTA dexopt, allow calls coming from postinstall.
@@ -708,5 +714,3 @@ neverallow system_server system_server_tmpfs:file execute;
 # dexoptanalyzer is currently used only for secondary dex files which
 # system_server should never access.
 neverallow system_server dexoptanalyzer_exec:file no_x_file_perms;
-
-allow system_server theme_data_file:dir search;
