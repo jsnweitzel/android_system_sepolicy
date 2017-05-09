@@ -429,6 +429,7 @@ get_prop(system_server, serialno_prop)
 
 # theme property
 get_prop(system_server, theme_prop)
+set_prop(system_server, theme_prop)
 
 # Read/write the property which keeps track of whether this is the first start of system_server
 set_prop(system_server, firstboot_prop)
